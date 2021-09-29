@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
-import { Container, TextField, Typography } from '@material-ui/core'
+import { Container, FormControlLabel, TextField, Typography } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 //import { Box } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import { makeStyles } from '@material-ui/core';
-
+import { Radio } from '@material-ui/core';
+import { RadioGroup } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
+import { FormLabel } from '@material-ui/core';
 const useStyles = makeStyles({
   field: { 
     marginTop: 20,
@@ -20,6 +23,8 @@ export default function Create() {
   const [details,setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
+  const [category, setCategory] = useState('Student')
+
 
   const handleSubmit = (e) => { 
     e.preventDefault()
@@ -48,13 +53,13 @@ export default function Create() {
         gutterBottom
         
       >
-        Create a New Note 
+        Fill out a complaint 
       </Typography>
       <form noValidate autoComplete="off" onSubmit = {handleSubmit}>
         <TextField
           onChange = {(e)=> setTitle(e.target.value)}
           className = {classes.field}
-          label="Note Title" 
+          label="Complaint title " 
           variant="outlined" 
           color="secondary" 
           fullWidth
@@ -65,7 +70,7 @@ export default function Create() {
         <TextField
           onChange = {(e)=> setDetails(e.target.value)}
           className = {classes.field}
-          label="Note Title" 
+          label="Complaint description" 
           variant="outlined" 
           color="secondary" 
           multiline
@@ -75,6 +80,18 @@ export default function Create() {
           error = {detailsError}
         />
        < br />  
+       <FormControl className = {classes.field}>
+       <FormLabel> Status </FormLabel>
+       < RadioGroup value = {category} onChange ={(e) => setCategory(e.target.value)}>
+        <FormControlLabel value= "Student" control = {<Radio />} label = "Student" />
+        <FormControlLabel value= "Professor" control = {<Radio />} label = "Professor" />
+        <FormControlLabel value= "Residential operations staff " control = {<Radio />} label = "Residential operations staff" />
+        <FormControlLabel value= "Dean" control = {<Radio />} label = "Dean" />
+      </RadioGroup>
+      </ FormControl>
+      
+
+
       <Button 
         type= "submit" 
         variant= "contained"
