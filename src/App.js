@@ -22,10 +22,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Create />
+          <Notes/>
         </Route>
         <Route path="/create">
-          <Notes/>
+          <Create/>
         </Route>
       </Switch>
     </Router>
