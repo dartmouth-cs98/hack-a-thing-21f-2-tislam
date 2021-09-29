@@ -9,7 +9,7 @@ import { Radio } from '@material-ui/core';
 import { RadioGroup } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
 import { FormLabel } from '@material-ui/core';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 const useStyles = makeStyles({
   field: { 
     marginTop: 20,
@@ -39,7 +39,7 @@ export default function Create() {
       setDetailsError(true)
     }
     if(title && details){
-      fetch('http://localhost:30001/complaintsnpm',{
+      fetch('http://localhost:30001/notes',{
         method: "Post",
         headers: {"Content-type": "application/json"},
         body : JSON.stringify({title,details,category})
