@@ -6,7 +6,6 @@ import { Box } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import { makeStyles } from '@material-ui/core';
 
-
 const useStyles = makeStyles({
   btn: {
     fontsize: 60, 
@@ -19,7 +18,7 @@ export default function Create() {
     <div>
       <Typography 
         variant = "h6"
-        color = "secondary"
+        color = "primary"
         component = "h2"
         align = "center"
         gutterBottom
@@ -58,5 +57,6 @@ export default function Create() {
     </Box > 
 
     </div>
+    
   )
 }
